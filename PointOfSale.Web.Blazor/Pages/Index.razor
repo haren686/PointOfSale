@@ -1,0 +1,38 @@
+﻿@page "/"
+@inherits IndexBase
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@if (ApplicationList == null)
+{
+    <p><em>Loading....</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Application Number</th>
+                <th>Application Logged By</th>
+                <th>Application Login Date</th>
+                <th> Application Status</th>
+                <th>Card Delivery Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var record in ApplicationList)
+            {
+            <tr>
+                <td>@record.ApplicationNumber</td>
+                <td>@record.ApplicationLoggedBy</td>
+                <td>@record.ApplicationLoggedInDate</td>
+                <td>@record.ApplicationStatus</td>
+                <td>@record.CardDeliveryStatus</td>
+                <td><button class="">Details</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
